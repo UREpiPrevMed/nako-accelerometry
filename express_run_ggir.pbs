@@ -1,0 +1,9 @@
+#!/bin/bash
+#PBS -l nodes=1:ppn=16
+#PBS -l walltime=00:09:30
+#PBS -l mem=46385mb
+#PBS -q express
+
+echo $otd
+echo $rd
+Rscript --vanilla /.../call_pipeline.R outputdir=$otd rootdir=$rd
