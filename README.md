@@ -3,12 +3,14 @@
 ## 1. GGIR part1
 
 - First, assemble the .gt3x files into batches of N files (recommended 40) by running the command `sh 01_create_ggir_batches.sh [/path/] [N]`.
-- Second, use `sh 02_run_ggir_fp.sh [/path/]` to create for each batch a command to run GGIR part 1 by calling `Rscript --vanilla /program-path/call_GGIR_nako_20220617.R [/path/batchX]`. 16 of these commands are compiled into a PBS queuing system job script with following parameters for the high performance computing cluster: 1 CPU with 16 kernels, 13h computing time, 64385mb memory \
+- Second, use `sh 02_run_ggir_fp.sh [/path/]` to create for each batch a command to run GGIR part 1 by calling `Rscript --vanilla /program-path/call_GGIR_nako_20220617.R [/path/batchX]`. 16 of these commands are compiled into a PBS queuing system job script with following parameters for the high performance computing cluster: 1 CPU with 16 kernels, 13h computing time, 64385mb memory using the following PBS-header (saved in a separate file):\
 #! /bin/bash \
-#PBS -l nodes=1ppn=16 \
+#PBS -l nodes=1:ppn=16 \
 #PBS -l walltime=13:00:00 \
 #PBS -l mem=64385mb \
-#PBS -q serial
+#PBS -q serial \
+#ATHOS -o req-ramdsk \
+#ATHOS -deps SELF-PROVIDED:GGIR
 - Third, create a subfolder `ggir_out` in the folder [/path/] where all the batches are located and in which the part 1 results will be stored.
 
 The GGIR part 1 routine produces for each .gt3x file one .RData file stored in the folder `meta/basic` of the respective `/ggir_out/output_batchXX`. 
