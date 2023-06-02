@@ -9,17 +9,17 @@ do
    then
      outbatch=${folder}	   
      echo "create qscript_ggir_${dir}_${outbatch}.pbs"
-     less .../nako/scripts/pbs_header_ggir > .../nako/scripts/ggir_pbs/qscript_ggir_${dir}_${outbatch}.pbs
-     echo "cd $1" >> .../nako/scripts/ggir_pbs/qscript_ggir_${dir}_${outbatch}.pbs	
-     echo "Rscript --vanilla .../nako/scripts/call_GGIR_nako_20220617.R ${1}${folder} &" >> .../nako/scripts/ggir_pbs/qscript_ggir_${dir}_${outbatch}.pbs
+     less /.../pbs_header_ggir > /.../qscript_ggir_${dir}_${outbatch}.pbs
+     echo "cd $1" >> /.../qscript_ggir_${dir}_${outbatch}.pbs	
+     echo "Rscript --vanilla /.../call_GGIR_nako_20220617.R ${1}${folder} &" >> /.../qscript_ggir_${dir}_${outbatch}.pbs
      i=$((i+1))
    elif [ $i -eq 16 ]
    then 
-     echo "Rscript --vanilla .../nako/scripts/call_GGIR_nako_20220617.R ${1}${folder} &" >> .../nako/scripts/ggir_pbs/qscript_ggir_${dir}_${outbatch}.pbs
-     echo "wait" >> .../nako/scripts/ggir_pbs/qscript_ggir_${dir}_${outbatch}.pbs	
+     echo "Rscript --vanilla /.../call_GGIR_nako_20220617.R ${1}${folder} &" >> /.../qscript_ggir_${dir}_${outbatch}.pbs
+     echo "wait" >> /.../qscript_ggir_${dir}_${outbatch}.pbs	
      i=1
    else 
-     echo "Rscript --vanilla .../nako/scripts/call_GGIR_nako_20220617.R ${1}${folder} &" >> .../nako/scripts/ggir_pbs/qscript_ggir_${dir}_${outbatch}.pbs
+     echo "Rscript --vanilla /.../call_GGIR_nako_20220617.R ${1}${folder} &" >> /.../qscript_ggir_${dir}_${outbatch}.pbs
      i=$((i+1))
    fi
 done
