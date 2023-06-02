@@ -1,5 +1,5 @@
 #!/usr/bin/env/Rscript
-# R script to run for the NAKO study, by V. van Hees, A. Hillreiner, H.Baurecht
+# R script to run for the NAKO study, by V. van Hees, A. Weber, H.Baurecht
 # 26.5.2020
 # GGIR - with gunzip implemented
 # Andrea experiment accelerometry
