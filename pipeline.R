@@ -83,7 +83,6 @@ pipeline = function(outputdir) {
                                  240, 250, 260, 265, 270, 280,
                                  350,
                                  400, 410, 415, 420, 430), #MVPA (moderate and vigorous physical activity threshold
-               bout.metric = 6,
                boutcriter = 0.8, # fraction of bout that needs to meet the threshold criteria
                mvpadur = c(1, 5, 10),
                #-----------------------------------
@@ -300,7 +299,7 @@ pipeline = function(outputdir) {
     return(P2)
   }
   
-  person_summary = do.call("rbind", lapply(fns, FUN = read_and_trim)) #function(files) { read.csv(files)}))
+  person_summary = do.call("rbind", lapply(fns, FUN = read_and_trim))
   person_summary = person_summary[!duplicated(person_summary),]
   # QC summary
   qcfiles =  grep(x = dir(outputdir, full.names = T, recursive = TRUE), pattern = "ata_quality_repo", value = TRUE)
@@ -309,7 +308,7 @@ pipeline = function(outputdir) {
     QC = QC[,c("filename", "file.corrupt", "file.too.short", "scale.x", "scale.y", "scale.z", "offset.x", "offset.y", "offset.z")]
     return(QC)
   }
-  qc_summary = do.call("rbind", lapply(qcfiles, FUN = read_and_trim2)) #function(files) { read.csv(files)}))
+  qc_summary = do.call("rbind", lapply(qcfiles, FUN = read_and_trim2))
   qc_summary = qc_summary[!duplicated(qc_summary),]
   # daysummary
   fns =  grep(x = dir(outputdir, full.names = T, recursive = TRUE), pattern = "part2_daysumma", value = TRUE)
