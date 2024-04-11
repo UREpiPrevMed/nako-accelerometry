@@ -1,5 +1,7 @@
 # Processing NAKO accelerometer data for data quality assessment
 
+This repository presents the processing of NAKO accelerometer data demonstrated in the manuscript: "Large-scale assessment of physical activity in a population using high-resolution hip-worn accelerometry: the German National Cohort (NAKO)" which is open access under https://doi.org/10.1038/s41598-024-58461-5.
+
 ## 1. GGIR part1
 
 - First, assemble the .gt3x files into batches of N files (recommended 40) by running the command `sh 01_create_ggir_batches.sh [/path/] [N]`.
